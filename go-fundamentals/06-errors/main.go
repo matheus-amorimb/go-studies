@@ -54,6 +54,45 @@ func divide(x, y float64) (float64, error) {
 	return x / y, nil
 }
 
-func main() {
+// Panic
+func panic() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("recovered from panic:", r)
+		}
+	}()
 
+	// this panics, but the defer/recover block catches it
+	// a truly astonishingly bad way to handle errors
+	enrichUser("123")
 }
+
+func enrichUser(userID string) {
+	_, err := 0, sendMessage(userID, "matheus")
+	if err != nil {
+		panic()
+	}
+}
+
+func validateStatus(status string) error {
+	sLen := len(status)
+	if sLen == 0 {
+		return StatusError{message: "status cannot be empty"}
+	}
+
+	if sLen > 140 {
+		return StatusError{message: "sstatus exceeds 140 characters"}
+	}
+
+	return nil
+}
+
+type StatusError struct {
+	message string
+}
+
+func (e StatusError) Error() string {
+	return e.message
+}
+
+func main() {}
