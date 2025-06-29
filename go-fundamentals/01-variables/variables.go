@@ -53,7 +53,7 @@ func TypeSizes() {
 
 	accountAgeFloat := 2.6
 	//Converting Between Types
-	accountAgeInt := int64(accountAgeFloat)
+	accountAgeInt := int32(accountAgeFloat)
 
 	fmt.Println("Your account has existed for", accountAgeInt, "years")
 }

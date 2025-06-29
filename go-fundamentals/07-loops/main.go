@@ -76,13 +76,10 @@ func printPrimes(max int) {
 			continue
 		}
 
-		var isPrime bool = true
-		// Checking up to sqrt(n) reduces the number of iterations from O(n) to O(√n).
-		for i := 3; i*i <= n; i += 2 {
-			iIsMultipledN := n%i == 0
-			if iIsMultipledN {
+		isPrime := true
+		for i := 5; i*i < n; i += 6 {
+			if n%i == 0 || n%(i+2) == 0 {
 				isPrime = false
-				break
 			}
 		}
 
@@ -90,4 +87,10 @@ func printPrimes(max int) {
 			fmt.Println(n)
 		}
 	}
+}
+
+// Exercise 3
+func countConnections(groupSize int) int {
+	// ?
+	return 0
 }
