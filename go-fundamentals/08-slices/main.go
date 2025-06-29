@@ -16,18 +16,18 @@ func main() {
 }
 
 // Arrays
-// func arrays() {
-// 	var myInts [10]int
+func arrays() {
+	var myInts [10]int
 
-// 	primes := [6]int{2, 3, 5, 7, 11, 13}
-// }
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+}
 
 // Slices
-// func slices() {
-// 	myFirstSlice := []int{}
-// 	primes := [6]int{2, 3, 5, 7, 11, 13}
-// 	mySlice := primes[1:4]
-// }
+func slices() {
+	myFirstSlice := []int{}
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	mySlice := primes[1:4]
+}
 
 const (
 	planFree = "free"
@@ -89,4 +89,17 @@ func getDayCosts(costs []cost, day int) []float64 {
 	}
 
 	return dayCosts
+}
+
+// Range
+unc indexOfFirstBadWord(msg []string, badWords []string) int {
+	for i, message := range msg {
+		for _, badWord := range badWords {
+			if message == badWord {
+				return i
+			}
+		}
+	}
+	
+	return -1
 }
