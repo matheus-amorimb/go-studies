@@ -92,7 +92,7 @@ func getDayCosts(costs []cost, day int) []float64 {
 }
 
 // Range
-unc indexOfFirstBadWord(msg []string, badWords []string) int {
+func indexOfFirstBadWord(msg []string, badWords []string) int {
 	for i, message := range msg {
 		for _, badWord := range badWords {
 			if message == badWord {
@@ -100,6 +100,18 @@ unc indexOfFirstBadWord(msg []string, badWords []string) int {
 			}
 		}
 	}
-	
+
 	return -1
+}
+
+// Slice of Slices
+func createMatrix(rows, cols int) [][]int {
+	matrix := make([][]int, rows)
+	for i := 0; i < rows; i++ {
+		matrix[i] = make([]int, cols)
+		for j := 0; j < cols; j++ {
+			matrix[i][j] = i * j
+		}
+	}
+	return matrix
 }
