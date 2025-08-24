@@ -13,12 +13,3 @@ func concurrency(message string) {
 	}()
 	fmt.Printf("Email sent: '%s'\n", message)
 }
-
-func deadlock() {
-	ch := make(chan int)
-	go func() {
-		ch <- 1
-	}()
-	v := <-ch
-	fmt.Println(v)
-}
